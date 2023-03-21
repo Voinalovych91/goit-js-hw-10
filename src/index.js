@@ -20,6 +20,9 @@ countryInputSearch.addEventListener(
 function searchCountry(e) {
   e.preventDefault();
   const nameCountry = e.target.value.trim();
+  if(!nameCountry) {
+    return;
+  }
   clearMarkup();
   fetchCountries(nameCountry).then(countries => {
     if (countries.length > 10) {
